@@ -67,14 +67,23 @@ function commonItem2(array1, array2) {
             map[item] = true
         }
     }
-    console.log(map)
+    // console.log(map)
     // loop through second array and check of item in
     // 2nd array exists on created object
     // we will have two loops but not nested
+    for (let j = 0; j < array2.length; j++) {
+        if(map[array2[j]]) {
+            return true
+        }
+    }
+    return false
 }
 
 // O(a + b)
 // although it is not solved yet the interview sees how I think
 
-console.log(commonItem2(array1, array2))
+answer3 = commonItem2(array1, array2)
+answer4 = commonItem2(array3, array4)
+console.log(answer3)
+console.log(answer4)
 
