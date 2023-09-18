@@ -1,4 +1,4 @@
-// Given 2 arrays, create a function that let's a user know T/F 
+// Given 2 arrays, create a function that let's a user know T/F
 // whether these two arrays contain any common items.
 
 // EXAMPLE
@@ -16,25 +16,25 @@
 // 2 parameters - arrays - no size limit
 // ask about the size of the array to discern time and space complexity
 // return true or false
-// brute force two nested for loops 
+// brute force two nested for loops
 // O(n^2)
 // may or may not wanna code the brute force solution
 // describe why brute force solution is not the best
 
-const array1 = ['a', 'b', 'c', 'x']
-const array2 = ['z', 'y', 'i']
-const array3 = ['a', 'b', 'c', 'x']
-const array4 = ['z', 'y', 'x']
+const array1 = ["a", "b", "c", "x"];
+const array2 = ["z", "y", "i"];
+const array3 = ["a", "b", "c", "x"];
+const array4 = ["z", "y", "x"];
 
 function containsCommonItem(array1, array2) {
-    for (let i = 0; i < array1.length; i++) {
-        for (let j = 0; j < array2.length; j++) {
-            if (array1[i] === array2[j]) {
-                return true
-            }
-        }
+  for (let i = 0; i < array1.length; i++) {
+    for (let j = 0; j < array2.length; j++) {
+      if (array1[i] === array2[j]) {
+        return true;
+      }
     }
-    return false
+  }
+  return false;
 }
 
 // answer1 = containsCommonItem(array1, array2)
@@ -44,42 +44,43 @@ function containsCommonItem(array1, array2) {
 // console.log(answer2)
 
 // since arrays are not the same length it would be O(a * b)
-
+// O(1) space complexity
 
 // is there a way to achieve better time complexity?
 // array1 ==> obj {
-    // a true
-    // b true
-    // c true
-    // x true
+// a true
+// b true
+// c true
+// x true
 //}
 // array2{index} === obj.properties
-// then you can only loop over the second array 
+// then you can only loop over the second array
 // to compare it to the first array that is now obj
 // LESS NESTED LOOPS
 
 function commonItem2(array1, array2) {
-    // loop through first array and create obj 
-    // where properties === items in the array
-    let map = {}
-    for (let i = 0; i < array1.length; i++) {
-        if(!map[array1[i]]) {
-            const item = array1[i]
-            map[item] = true
-        }
+  // loop through first array and create obj
+  // where properties === items in the array
+  let map = {};
+  for (let i = 0; i < array1.length; i++) {
+    if (!map[array1[i]]) {
+      const item = array1[i];
+      map[item] = true;
     }
-    // console.log(map)
-    // loop through second array and check of item in
-    // 2nd array exists on created object
-    // we will have two loops but not nested
-    for (let j = 0; j < array2.length; j++) {
-        if(map[array2[j]]) {
-            return true
-        }
+  }
+  // console.log(map)
+  // loop through second array and check of item in
+  // 2nd array exists on created object
+  // we will have two loops but not nested
+  for (let j = 0; j < array2.length; j++) {
+    if (map[array2[j]]) {
+      return true;
     }
-    return false
+  }
+  return false;
 }
 // O(a + b)
+// O(a) space complexity because of the obj
 // although it is not solved yet the interview sees how I think
 // answer3 = commonItem2(array1, array2)
 // answer4 = commonItem2(array3, array4)
@@ -94,15 +95,23 @@ function commonItem2(array1, array2) {
 // TEST YOUR CODE
 // Test with no params, 0, undefined, null, massive arrays, async code etc
 
-
 // Language specific solution with specific JS methods
 
 function commonItem3(array1, array2) {
-    return array1.some(item => array2.includes(item))
+  return array1.some((item) => array2.includes(item));
 }
 
-answer5 = commonItem3(array1, array2)
-answer6 = commonItem2(array3, array4)
-console.log(answer5)
-console.log(answer6)
+answer5 = commonItem3(array1, array2);
+answer6 = commonItem2(array3, array4);
+console.log(answer5);
+console.log(answer6);
+
+// interviewer might ask follow up question
+// question can be a what if about space time
+// how would you handle it if the input was much larger?
+
+
+// you want modular code do not let 1 function do too many things
+// build small pieces of code that does 1 thing very well
+// creates testable clean code
 
