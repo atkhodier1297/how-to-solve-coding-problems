@@ -44,8 +44,9 @@ function containsCommonItem(array1, array2) {
 // console.log(answer2)
 
 // since arrays are not the same length it would be O(a * b)
-// is there a way to turn this to a faster time complexity?
 
+
+// is there a way to achieve better time complexity?
 // array1 ==> obj {
     // a true
     // b true
@@ -78,12 +79,30 @@ function commonItem2(array1, array2) {
     }
     return false
 }
-
 // O(a + b)
 // although it is not solved yet the interview sees how I think
+// answer3 = commonItem2(array1, array2)
+// answer4 = commonItem2(array3, array4)
+// console.log(answer3)
+// console.log(answer4)
 
-answer3 = commonItem2(array1, array2)
-answer4 = commonItem2(array3, array4)
-console.log(answer3)
-console.log(answer4)
+// ask interviewer about ways to break the code
+// ask if the function will always have two parameters
+// maybe add if statements to check the input types
+// tell the interviewer what you would do
+// make sure to give meaningful names to parameters and variables
+// TEST YOUR CODE
+// Test with no params, 0, undefined, null, massive arrays, async code etc
+
+
+// Language specific solution with specific JS methods
+
+function commonItem3(array1, array2) {
+    return array1.some(item => array2.includes(item))
+}
+
+answer5 = commonItem3(array1, array2)
+answer6 = commonItem2(array3, array4)
+console.log(answer5)
+console.log(answer6)
 
